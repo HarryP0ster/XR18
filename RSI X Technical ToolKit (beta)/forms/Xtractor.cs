@@ -26,7 +26,7 @@ namespace RSI_X_Desktop.forms
     {
         public class BtnCmbPair 
         {
-            Button btn;
+            ReaLTaiizor.Controls.SkyButton btn;
             ComboBox cmb;
             int indexLang;
             public bool langNotActive { get; private set; } = true;
@@ -41,18 +41,19 @@ namespace RSI_X_Desktop.forms
             public int GetIndexLang() { return indexLang; }
             public string GetLang()   { return btn.Text; }
 
-            public BtnCmbPair(Button btn, ComboBox cmb, int indexLang) 
+            public BtnCmbPair(ReaLTaiizor.Controls.SkyButton btn, ComboBox cmb, int indexLang) 
             {
                 this.btn = btn;
                 this.cmb = cmb;
                 this.indexLang = indexLang;
             }
 
-            public void ButtonRelay_Click() 
-            {
-                ButtonRelay_Click(btn, new EventArgs());
-            }
             public void ButtonRelay_Click(object sender, EventArgs e)
+            {
+                UpdateColors(sender as ReaLTaiizor.Controls.SkyButton);
+            }
+
+            public void UpdateColors(ReaLTaiizor.Controls.SkyButton btn)
             {
                 int m_intRel = indexLang;
                 bool? langActiveT = AgoraObject.room.IsActiveInterpRoomsAt(m_intRel);
@@ -62,7 +63,18 @@ namespace RSI_X_Desktop.forms
                     langNotActive = (bool)langActiveT;
                     AgoraObject.room.SetActiveInterpRoomsAt(m_intRel, !langNotActive);
 
-                    (sender as Button).BackColor = !langNotActive ? Xtractor.ButtonPushColor : DefaultBackColor;
+                    if (!langNotActive)
+                    {
+                        SkyBtnUpdate(btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                            Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.FromArgb(45, 45, 45),
+                                Color.FromArgb(53, 53, 53));
+                    }
+                    else
+                    {
+                        SkyBtnUpdate(btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                            Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.Red,
+                            Color.DarkRed);
+                    }
                 }
             }
         }
@@ -109,13 +121,16 @@ namespace RSI_X_Desktop.forms
             UpdateInterpreterRoomCB();
         }
 
-        internal static Button CreateButton(string text, int height, int width) => new Button()
+        internal ReaLTaiizor.Controls.SkyButton CreateButton(string text, int height, int width)
         {
-            Text = text,
-            Height = height,
-            Width = width,
-            BackColor = DefaultBackColor,
-        };
+            return new ReaLTaiizor.Controls.SkyButton()
+            {
+                Text = text,
+                Height = height,
+                Width = width,
+                Font = new Font("Bahnschrift Condensed", 14, FontStyle.Bold),
+            };
+        }
 
         private void UpdateRelayLangs()
         {
@@ -124,7 +139,7 @@ namespace RSI_X_Desktop.forms
             int defHeight = 35;
             int offset = 1;
 
-            Button btn;
+            ReaLTaiizor.Controls.SkyButton btn;
             ComboBox cmb;
             BtnCmbPair pair;
 
@@ -171,6 +186,7 @@ namespace RSI_X_Desktop.forms
                 BtnCmbPairs.Add(pair);
                 offset++;
                 ButtonRelay_Click(btn, new EventArgs());
+                pair.UpdateColors(btn);
             }
         }
 
@@ -185,7 +201,7 @@ namespace RSI_X_Desktop.forms
         private void ButtonTarget_Click(object sender, EventArgs e)
         {
             // buttons with name TAR#
-            string m_index = ((Button)sender).Name[3..];
+            string m_index = ((ReaLTaiizor.Controls.SkyButton)sender).Name[3..];
             int m_intTar = Convert.ToInt32(m_index);
 
             bool? langActiveT = AgoraObject.room.IsActiveTargetRoomsAt(m_intTar);
@@ -204,14 +220,15 @@ namespace RSI_X_Desktop.forms
 #endif
                 AgoraObject.room.SetActiveTargetRoomsAt(m_intTar, !langActive);
 
-                (sender as Button).BackColor = !langActive ? ButtonPushColor : DefaultBackColor;
+                (sender as ReaLTaiizor.Controls.SkyButton).NormalBGColorA = !langActive ? Xtractor.ButtonPushColor : DefaultBackColor;
+                (sender as ReaLTaiizor.Controls.SkyButton).NormalBGColorB = !langActive ? Xtractor.ButtonPushColor : DefaultBackColor;
             }
         }
 
         private void ButtonRelay_Click(object sender, EventArgs e)
         {
             // buttons with name REL#
-            string s_index = ((Button)sender).Name[3..];
+            string s_index = ((ReaLTaiizor.Controls.SkyButton)sender).Name[3..];
             int m_intRel = Convert.ToInt32(s_index);
             bool? langActiveT = AgoraObject.room.IsActiveInterpRoomsAt(m_intRel);
 
@@ -223,7 +240,8 @@ namespace RSI_X_Desktop.forms
 #endif
                 AgoraObject.room.SetActiveInterpRoomsAt(m_intRel, !langActive);
 
-                (sender as Button).BackColor = !langActive ? ButtonPushColor : DefaultBackColor;
+                (sender as ReaLTaiizor.Controls.SkyButton).NormalBGColorA = !langActive ? Xtractor.ButtonPushColor : DefaultBackColor;
+                (sender as ReaLTaiizor.Controls.SkyButton).NormalBGColorB = !langActive ? Xtractor.ButtonPushColor : DefaultBackColor;
             }
         }
 
@@ -390,6 +408,20 @@ namespace RSI_X_Desktop.forms
         private void mButton_cancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private static void SkyBtnUpdate(ReaLTaiizor.Controls.SkyButton btn, Color BorA, Color BorB, Color BorC, Color BorD, Color Fore, Color ForeShad,
+                        Color BackColor, Color NormA, Color NormB)
+        {
+            btn.NormalBorderColorA = BorA;
+            btn.NormalBorderColorB = BorB;
+            btn.NormalBorderColorC = BorC;
+            btn.NormalBorderColorD = BorD;
+            btn.NormalForeColor = Fore;
+            btn.NormalShadowForeColor = ForeShad;
+            btn.BackColor = BackColor;
+            btn.NormalBGColorA = NormA;
+            btn.NormalBGColorB = NormB;
         }
     }
 }
