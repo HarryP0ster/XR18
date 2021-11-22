@@ -24,7 +24,7 @@ namespace RSI_X_Desktop.forms
         CHANNEL_UNPUBLISH
     };
 
-    public partial class Xtractor : MaterialForm
+    public partial class Xtractor : Form
     {
         public class BtnCmbPair 
         {
@@ -88,12 +88,6 @@ namespace RSI_X_Desktop.forms
         public Xtractor()
         {
             InitializeComponent();
-
-            //Инициализирую интерфейс Google Material Design
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             
             label_nameOfConference.Text = AgoraObject.GetComplexToken().GetRoomName;
 
