@@ -49,9 +49,11 @@ namespace RSI_X_Desktop.forms
             if (AgoraObject.JoinRoom(code))
             {
                 Hide();
-                //TransLater TransLater = new();
-                //AgoraObject.CurrentForm = CurForm.FormTransLater;
-                //TransLater.Show(this);
+                Xtractor xtractor = new();
+                AgoraObject.CurrentForm = CurForm.FormEngineer;
+                xtractor.Show(this);
+                Ingestor injector = new();
+                injector.Show(this);
             }
         }
 
