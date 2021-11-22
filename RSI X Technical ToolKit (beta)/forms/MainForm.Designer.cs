@@ -77,7 +77,7 @@ namespace RSI_X_Desktop.forms
             this.formTheme1.SmartBounds = false;
             this.formTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.formTheme1.TabIndex = 0;
-            this.formTheme1.Text = "RSI EXCHANGE XR 18";
+            this.formTheme1.Text = "RSI EXCHANGE XTRACTOR";
             this.formTheme1.Click += new System.EventHandler(this.formTheme1_Click);
             // 
             // controlBox1
@@ -362,9 +362,9 @@ namespace RSI_X_Desktop.forms
             this.labelBeta.Location = new System.Drawing.Point(416, 0);
             this.labelBeta.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelBeta.Name = "labelBeta";
-            this.labelBeta.Size = new System.Drawing.Size(56, 36);
+            this.labelBeta.Size = new System.Drawing.Size(94, 36);
             this.labelBeta.TabIndex = 1;
-            this.labelBeta.Text = "XR 18";
+            this.labelBeta.Text = "XTRACTOR";
             // 
             // labelLogo
             // 
@@ -396,7 +396,7 @@ namespace RSI_X_Desktop.forms
             this.MinimumSize = new System.Drawing.Size(144, 67);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RSI EXCHANGE XR 18";
+            this.Text = "RSI EXCHANGE XTRACTOR";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);

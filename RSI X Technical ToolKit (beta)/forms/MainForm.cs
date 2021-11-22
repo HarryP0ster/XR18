@@ -21,7 +21,6 @@ namespace RSI_X_Desktop.forms
 
         public MainForm()
         {
-
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
@@ -49,11 +48,9 @@ namespace RSI_X_Desktop.forms
             if (AgoraObject.JoinRoom(code))
             {
                 Hide();
-                Xtractor xtractor = new();
                 AgoraObject.CurrentForm = CurForm.FormEngineer;
+                Xtractor xtractor = new();
                 xtractor.Show(this);
-                Ingestor injector = new();
-                injector.Show(this);
             }
         }
 
