@@ -533,30 +533,5 @@ namespace RSI_X_Desktop
 
             RoomTarg = langFull;
         }
-
-        public static void CallUnPublish()
-        {
-            if (workForm != null && CurrentForm == CurForm.FormTransLater)
-                ((TransLater)workForm).UnPublish();
-        }
-
-        public static void CallNameUpdate(Queue<string> name)
-        {
-            if (workForm != null && CurrentForm == CurForm.FormTransLater)
-                ((TransLater)workForm).SetPublishName(name);
-        }
-
-        public static void SendMessageToTransl(string msg) 
-        {
-            m_channelTransl.SendStreamMessage(_translStreamID, utf8enc.GetBytes(msg));
-        }
-        public static void SendMessageToHost(string msg)
-        {
-            m_channelHost.SendStreamMessage(_hostStreamID, utf8enc.GetBytes(msg));
-        }
-        public static TransLater GetTranslatorForm()
-        {
-            return (TransLater)workForm;
-        }
     }
 }

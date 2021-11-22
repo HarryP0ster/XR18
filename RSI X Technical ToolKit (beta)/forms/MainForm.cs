@@ -15,38 +15,15 @@ namespace RSI_X_Desktop.forms
 {
     public partial class MainForm : Form
     {
-#if DEBUG
-        //private HelpingClass.DBTest DBTest = new();
-#endif
-        static private string userName = "";
         
-        AppDomain currentDomain = AppDomain.CurrentDomain;
         private bool bMouseDown = false;
         Point MouseOffset = new Point(0, 0);
 
         public MainForm()
         {
-            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
 
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            DBReader.Connect();
-
-#if DEBUG
-            //|ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ|
-            //TODO: Delete this
-            //|ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ|
-            //DBReader.ConnectClear("1");
-            //|ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ|
-            //|ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ|
-#endif
-        }
-
-        private void MyHandler(object sender, UnhandledExceptionEventArgs e)
-        {
-            // Send 'exit' when exception
-            if (DBReader.IsConnected)
-                DBReader.LeaveRoom();
         }
 
 
@@ -72,9 +49,9 @@ namespace RSI_X_Desktop.forms
             if (AgoraObject.JoinRoom(code))
             {
                 Hide();
-                TransLater TransLater = new();
-                AgoraObject.CurrentForm = CurForm.FormTransLater;
-                TransLater.Show(this);
+                //TransLater TransLater = new();
+                //AgoraObject.CurrentForm = CurForm.FormTransLater;
+                //TransLater.Show(this);
             }
         }
 
@@ -150,12 +127,6 @@ namespace RSI_X_Desktop.forms
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        static public void UpdateName(string name) 
-        { userName = name; }
-
-        static public string GetUserName() => userName;
-
         private void MainForm_Resize(object sender, EventArgs e)
         {
             //для того, чтобы форма не вылетала при сворачивании ее в панель инстурментов

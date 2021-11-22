@@ -352,8 +352,6 @@ namespace RSI_X_Desktop
 
         public override void OnUserInfoUpdated(uint uid, UserInfo info)
         {
-            DBReader.AddTransLater(uid, info.userAccount);
-            ((TransLater)form).RebindVideoWndInvoke();
             Console.WriteLine("OnUserInfoUpdated");
         }
 
