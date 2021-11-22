@@ -60,7 +60,7 @@ namespace RSI_X_Desktop.forms
 
                 if (langActiveT != null)
                 {
-                    langNotActive = (bool)langActiveT;
+                    langNotActive = !(bool)langActiveT;
                     AgoraObject.room.SetActiveInterpRoomsAt(m_intRel, !langNotActive);
 
                     if (!langNotActive)
