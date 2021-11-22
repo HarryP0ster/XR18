@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSI X Technical ToolKit (beta)", "RSI X Technical ToolKit (beta)\RSI X Technical ToolKit (beta).csproj", "{57F858BA-80AF-4DF0-AAA7-CF7576457F0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSI X XR18 (beta)", "RSI X Technical ToolKit (beta)\RSI X XR18 (beta).csproj", "{57F858BA-80AF-4DF0-AAA7-CF7576457F0A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CB145C3D-ED42-40C0-9DB2-057863CFA990} = {CB145C3D-ED42-40C0-9DB2-057863CFA990}
 		{34EA948E-F31D-460C-9292-5F79B9DDD9EA} = {34EA948E-F31D-460C-9292-5F79B9DDD9EA}
