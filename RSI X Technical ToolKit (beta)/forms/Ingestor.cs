@@ -23,7 +23,7 @@ namespace RSI_X_Desktop.forms
         //Публичный класс, который описывает пары языковых кнопок и списки подключенного оборудования
         public class BtnCmbPair
         {
-            ReaLTaiizor.Controls.SkyButton btn;
+            internal ReaLTaiizor.Controls.SkyButton btn;
             ComboBox cmb;
             //Переменная для хранения количества языков 
             int indexLang;
@@ -67,7 +67,7 @@ namespace RSI_X_Desktop.forms
                     langNotActive = (bool)langActiveT;
                     AgoraObject.room.SetActiveInterpRoomsAt(m_intRel, !langNotActive);
 
-                    if (!langNotActive)
+                    if (langNotActive)
                     {
                         SkyBtnUpdate(btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
                             Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.FromArgb(45, 45, 45),
@@ -244,9 +244,13 @@ namespace RSI_X_Desktop.forms
 
             foreach (var pair in BtnCmbPairs)
             {
-                if (pair.langNotActive == true)
+                if (pair.langNotActive == false)
                 {
                     //pair.ButtonRelay_Click();
+                    SkyBtnUpdate(pair.btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                        Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.Red,
+                        Color.DarkRed);
+                    pair.btn.Refresh();
                 }
             }
 
@@ -263,6 +267,11 @@ namespace RSI_X_Desktop.forms
             {
                 if (pair.langNotActive == false)
                 {
+
+                    SkyBtnUpdate(pair.btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                        Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.DarkOrange,
+                        Color.Orange);
+                    pair.btn.Refresh();
 
                     int indId = pair.GetIndexID();
                     string ind = devicesOutInd[indId];

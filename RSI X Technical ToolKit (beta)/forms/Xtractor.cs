@@ -26,7 +26,7 @@ namespace RSI_X_Desktop.forms
     {
         public class BtnCmbPair 
         {
-            ReaLTaiizor.Controls.SkyButton btn;
+            internal ReaLTaiizor.Controls.SkyButton btn;
             ComboBox cmb;
             int indexLang;
             public bool langNotActive { get; private set; } = true;
@@ -60,10 +60,10 @@ namespace RSI_X_Desktop.forms
 
                 if (langActiveT != null)
                 {
-                    langNotActive = !(bool)langActiveT;
+                    langNotActive = (bool)langActiveT;
                     AgoraObject.room.SetActiveInterpRoomsAt(m_intRel, !langNotActive);
 
-                    if (!langNotActive)
+                    if (langNotActive)
                     {
                         SkyBtnUpdate(btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
                             Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.FromArgb(45, 45, 45),
@@ -251,10 +251,14 @@ namespace RSI_X_Desktop.forms
 
             foreach (var pair in BtnCmbPairs)
             {
-                if (pair.langNotActive == true)
+                if (pair.langNotActive == false)
                 {
                     //pair.ButtonRelay_Click();
-                } 
+                    SkyBtnUpdate(pair.btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                    Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.Red,
+                    Color.DarkRed);
+                    pair.btn.Refresh();
+                }
             }
             IsPublishing = false;
             mButton_start.Text = "Start!";
@@ -276,6 +280,10 @@ namespace RSI_X_Desktop.forms
                     int indId = pair.GetIndexID();
                     string ind = devicesOutInd[indId];
 
+                    SkyBtnUpdate(pair.btn, Color.FromArgb(80, 80, 80), Color.FromArgb(64, 64, 64), Color.FromArgb(64, 64, 64),
+                        Color.FromArgb(50, 50, 50), Color.White, Color.LightGray, Color.FromArgb(45, 45, 45), Color.DarkOrange,
+                        Color.Orange);
+                    pair.btn.Refresh();
                     langHolder lh = AgoraObject.room.GetTargetRoomsAt(pair.GetIndexLang() + 1);
                     int id = System.Diagnostics.Process.GetCurrentProcess().Id;
 
