@@ -46,12 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="forms\TranslatorWnd.resx" />
     <EmbeddedResource Remove="X-tractor.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="forms\TranslatorWnd.resx" />
   </ItemGroup>
 
   <ItemGroup>
