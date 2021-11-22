@@ -72,7 +72,7 @@ namespace RSI_X_Desktop.forms
             if (AgoraObject.JoinRoom(code))
             {
                 Hide();
-                TransLater TransLater = new();
+                Xtractor TransLater = new();
                 AgoraObject.CurrentForm = CurForm.FormTransLater;
                 TransLater.Show(this);
             }

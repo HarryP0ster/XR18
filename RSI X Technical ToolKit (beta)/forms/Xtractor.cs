@@ -12,8 +12,6 @@ using Un4seen.Bass.Misc;
 using Un4seen.BassAsio;
 using agorartc;
 using System.Diagnostics;
-using MaterialSkin;
-using MaterialSkin.Controls;
 
 namespace RSI_X_Desktop.forms
 {
