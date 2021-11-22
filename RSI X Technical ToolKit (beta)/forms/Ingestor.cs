@@ -17,7 +17,7 @@ using MaterialSkin.Controls;
 
 namespace RSI_X_Desktop.forms
 {
-    public partial class Ingestor : MaterialForm
+    public partial class Ingestor : Form
     {
         private string HostName = string.Empty;
         //Публичный класс, который описывает пары языковых кнопок и списки подключенного оборудования
