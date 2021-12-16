@@ -220,9 +220,10 @@ namespace RSI_X_Desktop.forms
 
         internal void Publish()
         {
-            CancelPublish();
             XAgora = new List<Process>();
+            CancelPublish();
             int index = 0;
+
             foreach (var pair in BtnCmbPairs)
             {
                 if (pair.langNotActive == false)
@@ -236,13 +237,13 @@ namespace RSI_X_Desktop.forms
                         Color.Orange);
                     pair.btn.Refresh();
                     langHolder lh = AgoraObject.room.GetTargetRoomsAt(pair.GetIndexLang() + 1);
-                    int id = System.Diagnostics.Process.GetCurrentProcess().Id;
+                    int id = Process.GetCurrentProcess().Id;
 
                     List<string> args = new() { lh.token, lh.langFull, ind , id.ToString()};
 
-                    Process proc = new Process();
+                    Process proc = new();
                     proc.StartInfo.CreateNoWindow = true;
-                    proc = System.Diagnostics.Process.Start("appIn.exe", args);
+                    proc = Process.Start("appIn.exe", args);
                     System.Threading.Thread.Sleep(60);
 
                     XAgora.Add(proc);
