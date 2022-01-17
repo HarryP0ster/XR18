@@ -77,7 +77,7 @@ namespace RSI_X_Desktop.forms
             this.formTheme1.SmartBounds = false;
             this.formTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.formTheme1.TabIndex = 0;
-            this.formTheme1.Text = "RSI EXCHANGE EXTRACTOR";
+            this.formTheme1.Text = "RSI EXCHANGE INJECTOR";
             this.formTheme1.Click += new System.EventHandler(this.formTheme1_Click);
             // 
             // controlBox1
@@ -359,12 +359,12 @@ namespace RSI_X_Desktop.forms
             this.labelBeta.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelBeta.Font = new System.Drawing.Font("Bahnschrift Condensed", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelBeta.ForeColor = System.Drawing.Color.White;
-            this.labelBeta.Location = new System.Drawing.Point(416, 0);
-            this.labelBeta.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelBeta.Location = new System.Drawing.Point(461, 0);
+            this.labelBeta.Margin = new System.Windows.Forms.Padding(50, 0, 5, 0);
             this.labelBeta.Name = "labelBeta";
-            this.labelBeta.Size = new System.Drawing.Size(84, 36);
+            this.labelBeta.Size = new System.Drawing.Size(71, 36);
             this.labelBeta.TabIndex = 1;
-            this.labelBeta.Text = "EXTRACTOR";
+            this.labelBeta.Text = "INJECTOR";
             // 
             // labelLogo
             // 
@@ -396,7 +396,7 @@ namespace RSI_X_Desktop.forms
             this.MinimumSize = new System.Drawing.Size(144, 67);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RSI EXCHANGE EXTRACTOR";
+            this.Text = "RSI EXCHANGE INJECTOR";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);

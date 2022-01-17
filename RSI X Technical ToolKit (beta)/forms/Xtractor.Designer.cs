@@ -161,7 +161,7 @@ namespace RSI_X_Desktop.forms
             this.formTheme1.SmartBounds = false;
             this.formTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.formTheme1.TabIndex = 12;
-            this.formTheme1.Text = "Extractor";
+            this.formTheme1.Text = "INJECTOR";
             // 
             // Xtractor
             // 
@@ -177,7 +177,7 @@ namespace RSI_X_Desktop.forms
             this.MinimumSize = new System.Drawing.Size(126, 50);
             this.Name = "Xtractor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Extractor";
+            this.Text = "INJECTOR";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Xtractor_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
